@@ -23,6 +23,7 @@ AHB-UVC/                              # existing GitHub repository
 │       ├── AHB_PROTOCOL_CONTRACT.md
 │       ├── CLAUDE_GENERATION_PROMPT.md
 │       ├── WORK_STATUS.md
+│       ├── SESSION_SUMMARY.md
 │       └── REVIEW_FEEDBACK.md
 ├── ahb_*.sv, ahb_m_sequencer.txt     # original UVC; unchanged by POC
 ├── ahb_directory_structure/          # original UVC copy; unchanged by POC

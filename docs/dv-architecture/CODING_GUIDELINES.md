@@ -162,7 +162,7 @@ Each rule has an ID. Cite it in reviews (`REVIEW_FEEDBACK.md`) and commit messag
 |---|---|
 | DOC-01 | Every change updates, in the same push: `WORK_STATUS.md` (manifest, validation table, known gaps, handoff block), `REVIEW_FEEDBACK.md` (new or changed risks), and the contract/README sections whose behaviour changed. |
 | DOC-02 | Every owner decision is added to `DECISION_LOG.md` the moment it is made, with date, wording and where it is applied. |
-| DOC-03 | Before context or tokens run low, write the handoff block in `WORK_STATUS.md` first: another model must be able to resume from Git and Markdown alone. |
+| DOC-03 | Before context or tokens run low, write the handoff block in `WORK_STATUS.md` first and add a row to the `SESSION_SUMMARY.md` session log (D-010): another model must be able to resume from Git and Markdown alone. |
 | DOC-04 | Docs state facts with evidence; plans and proposals are labelled PROPOSED; unexecuted stages are NOT RUN. Specification citations that were not checked against the PDF say so. |
 
 ---
@@ -188,7 +188,7 @@ Each rule has an ID. Cite it in reviews (`REVIEW_FEEDBACK.md`) and commit messag
 
 | ID | Rule |
 |---|---|
-| GIT-01 | One feature branch per task, from `dev`: `feature/<task-id>-<short-kebab-description>` (for example `feature/ahb-001-protocol-contract`). Bring `dev` in with a merge commit when asked; never rebase, amend or force-push shared history. *Note (D-008): the first AHB push uses the session-designated branch `claude/festive-goodall-33kr39`, created from `dev`.* |
+| GIT-01 | One feature branch per task, from `dev`: `feature/<task-id>-<short-kebab-description>` (for example `feature/ahb-001-protocol-contract`). Bring `dev` in with a merge commit when asked; never rebase, amend or force-push shared history. *Note (D-008, D-009): the first AHB push used the session-designated branch `claude/festive-goodall-33kr39`, created from `dev` and merged into `dev` by PR #7.* |
 | GIT-02 | Conventional Commits: `<type>(ahb-uvc): <imperative subject ≤ 72 chars>`; types used here are `feat`, `fix`, `refactor`, `style` (formatting only), `test`, `docs`, `build`. The body says what changed and why, and what was or was not run. Footer `Refs: <task/risk IDs>` plus the attribution trailers. |
 | GIT-03 | One logical change per commit. Sources and the docs that describe them may be separate commits within the same push. |
 | GIT-04 | A commit message must match the commit content. Check `git show --stat` before pushing. If a pushed message is wrong, add a follow-up commit that says what it completes or corrects; never rewrite pushed history. |
