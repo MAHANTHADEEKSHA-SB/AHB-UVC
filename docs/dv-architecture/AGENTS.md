@@ -4,6 +4,7 @@
 
 ## Mandatory read before changes
 
+0. `docs/dv-architecture/SESSION_SUMMARY.md` — orientation and session log (a summary; it overrides nothing)
 1. `docs/dv-architecture/DECISION_LOG.md` — every owner decision (overrides everything below)
 2. `docs/dv-architecture/CODING_GUIDELINES.md` — **mandatory** coding standard and pre-commit checklist
 3. `docs/dv-architecture/ARCHITECTURE_CONTRACT.md`
@@ -24,7 +25,7 @@
 - Preserve approved architectural decisions unless a documented, approved ADR amendment is provided. If a rule seems invalid, demonstrate a counterexample and propose change, don't silently sidestep it.
 - Record all files changed, tool versions, exact compile/sim commands, logs, and failures in `WORK_STATUS.md`. Use **NOT RUN** instead of guessing.
 - Record independent ChatGPT/Gemini issues with exact reviewed SHA, file/line, severity and retest evidence in `REVIEW_FEEDBACK.md`.
-- Before context/token exhaustion, checkpoint the last known working stage, current task and next exact step. Other AIs must be able to resume from Git + Markdown alone.
+- Before context/token exhaustion, checkpoint the last known working stage, current task and next exact step in `WORK_STATUS.md`, and add a row to the `SESSION_SUMMARY.md` session log (D-010). Other AIs must be able to resume from Git + Markdown alone.
 - Commit only to an authorized branch, never force-push, overwrite shared history or merge without authorization.
 
 ## Validation philosophy

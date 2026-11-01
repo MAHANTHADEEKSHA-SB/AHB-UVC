@@ -8,6 +8,7 @@ The existing root-level `ahb_*.sv` files and `ahb_directory_structure/` are an o
 
 ## Read in order
 
+0. [SESSION_SUMMARY.md](SESSION_SUMMARY.md): one-page orientation, session log and a start prompt for a new chat (summary only; the documents below govern).
 1. [AGENTS.md](AGENTS.md): what every model/engineer must read and how to hand off.
 2. [DECISION_LOG.md](DECISION_LOG.md): every owner decision, dated, with where it is applied; overrides the documents below.
 3. [CODING_GUIDELINES.md](CODING_GUIDELINES.md): **mandatory** SystemVerilog/UVM coding standard, Git rules and pre-commit checklist.
@@ -28,4 +29,4 @@ One `poc/ahb_uvc/` directory ships its own **AHB Manager interface, driver BFM, 
 
 Architecture documentation and the M1 sources exist; this is **not a compiled or tested UVC**. No tool is approved for this repository yet; every compile, elaboration and simulation stage is NOT RUN. Actual status and next steps are in `WORK_STATUS.md`.
 
-**Git workflow:** the session-designated branch `claude/festive-goodall-33kr39` (created from `dev` = `main` at `ed51c95`) carries this work (`DECISION_LOG.md` D-008). Do not merge or migrate the original AHB files without explicit approval.
+**Git workflow:** the first session's branch `claude/festive-goodall-33kr39` (created from `dev` = `main` at `ed51c95`, D-008) was merged into `dev` by PR #7 as `6a84aa2` (D-009). New work starts on a feature branch from `dev` (GIT-01). Do not merge or migrate the original AHB files without explicit approval.

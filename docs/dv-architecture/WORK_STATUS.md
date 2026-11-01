@@ -1,23 +1,23 @@
 # WORK_STATUS — single AHB UVC handoff checkpoint
 
-**Checkpoint date:** 2026-10-31 (first AHB session; resume in a new session from *Resume here*)
+**Checkpoint date:** 2026-11-01 (end of the first AHB session, after the owner merged PR #7; resume in a new session from *Resume here* — `SESSION_SUMMARY.md` has the one-page overview and a new-chat start prompt)
 **Repository:** https://github.com/MAHANTHADEEKSHA-SB/AHB-UVC
-**Branch:** `claude/festive-goodall-33kr39` (session-designated, D-008), created from `dev` = `main` at `ed51c95b78518238a859c7268969970b281fa1aa`
+**Branch:** the M1 work is on **`dev` at `6a84aa297a23cf26d61c92fe0ff96a99f632636e`**, the merge of [PR #7](https://github.com/MAHANTHADEEKSHA-SB/AHB-UVC/pull/7) from `claude/festive-goodall-33kr39` (commits `63ac0d4`..`634faaf`, created from `dev` = `main` at `ed51c95`; D-008, D-009). `main` is still at `ed51c95`. This status update was made on `claude/festive-goodall-33kr39`, restarted from `dev`. New work starts on a feature branch from `dev` (GIT-01).
 **Template source:** `https://github.com/MAHANTHADEEKSHA-SB/apb_uvc`, branch `feature/apb-005-passive-reset-apb3-tests` at `b406d6a9c75aca158671f304257ce9a5ba346710` (same commit as its `dev`)
 **Current commit SHA:** read actual `git rev-parse HEAD`; this file cannot self-reference its own commit.
 **Working tree:** UNKNOWN for local clones; verify before changing code.
 **Phase:** governance docs adapted from APB; M1 sources for steps 2–6 **written and commented** (HDL, HVL API, adapters, UVM agent, HVL top, HDL smoke, UVM tests) as portable IEEE 1800-2017 SystemVerilog/UVM following `CODING_GUIDELINES.md`. **Nothing compiled, elaborated or simulated: no tool is approved for this repository (D-003).**
 **Tool results:** none. Text-only checks (grep/awk) only; see *Static self-review done*.
 **Next implementer:** Claude or another authorized model/engineer.
-**Active task:** none in progress. Next: owner review of `AHB_PROTOCOL_CONTRACT.md` Q1–Q7 and a decision on the toolchain approval request below.
+**Active task:** none in progress. Next: owner review of `AHB_PROTOCOL_CONTRACT.md` Q1–Q7 and a decision on the toolchain approval request below (merging PR #7 confirmed neither, D-009).
 **Spec reference:** Arm AMBA AHB Protocol Specification, ARM IHI 0033C (ID090921, September 2021). The PDF is Arm copyright and is not committed here; citations are by section title (RISK-013).
 
 > Do not trust this status without comparing it to the real files, current Git SHA, and logs. Any difference must be reconciled explicitly.
 
 ## Resume here (new session, other model or engineer)
 
-1. `git fetch origin && git switch claude/festive-goodall-33kr39 && git status --short && git log --oneline -12`. Compare HEAD with this file. Then set the commit identity to the owner before any commit (D-007, GIT-07): `git config user.name "Mahantha Deeksha S B" && git config user.email "$(git log origin/dev --author='Mahantha Deeksha S B' --format='%ae' -1)"`.
-2. Read in order: `AGENTS.md` (root) → `docs/dv-architecture/AGENTS.md` → **`DECISION_LOG.md`** → **`CODING_GUIDELINES.md`** (mandatory standard + pre-commit checklist) → `ARCHITECTURE_CONTRACT.md` → ADR-001 → ADR-002 → `AHB_PROTOCOL_CONTRACT.md` → this file → `REVIEW_FEEDBACK.md` → `poc/ahb_uvc/README.md`.
+1. `git fetch origin && git switch dev && git pull --ff-only && git status --short && git log --oneline -12`. Compare HEAD with this file (`6a84aa2` or later). Create the task branch from `dev` (`git switch -c feature/ahb-<id>-<short-description>`) unless the session designates a branch. Then set the commit identity to the owner before any commit (D-007, GIT-07): `git config user.name "Mahantha Deeksha S B" && git config user.email "$(git log origin/dev --author='Mahantha Deeksha S B' --format='%ae' -1)"`.
+2. Read in order: `SESSION_SUMMARY.md` (orientation) → `AGENTS.md` (root) → `docs/dv-architecture/AGENTS.md` → **`DECISION_LOG.md`** → **`CODING_GUIDELINES.md`** (mandatory standard + pre-commit checklist) → `ARCHITECTURE_CONTRACT.md` → ADR-001 → ADR-002 → `AHB_PROTOCOL_CONTRACT.md` → this file → `REVIEW_FEEDBACK.md` → `poc/ahb_uvc/README.md`.
 3. **Owner rules in force** (full list and sources in `DECISION_LOG.md`):
    - **Every code change follows `CODING_GUIDELINES.md`** and its §13 checklist is ticked before commit (D-005, D-006).
    - **No tool execution** (simulator, compiler, elaborator, lint) without explicit owner approval of tool, version, commands **and options** (D-003). **Nothing is approved for this repository**; the APB approvals do not carry over.
@@ -194,20 +194,28 @@ NEXT EXACT COMMAND/SMALLEST TASK:
 
 **Rule:** One model's confidence is not a validation result. If context/tokens are low, write this handoff before starting further generation.
 
-### Latest handoff — 2026-10-31 (first AHB session)
+### Latest handoff — 2026-11-01 (PR #7 merged into dev)
 
 ```text
 HANDOFF FROM: Claude (Claude Code session)
-REPO/BRANCH: MAHANTHADEEKSHA-SB/AHB-UVC @ claude/festive-goodall-33kr39 (from dev = main ed51c95)
-EXACT COMMIT SHA: branch HEAD (`git log -1`); this file is part of the last commit of the push
+REPO/BRANCH: MAHANTHADEEKSHA-SB/AHB-UVC @ dev 6a84aa2 (merge of PR #7, branch claude/festive-goodall-33kr39,
+             commits 63ac0d4..634faaf); this status/summary update on claude/festive-goodall-33kr39 restarted from dev
+EXACT COMMIT SHA: dev 6a84aa297a23cf26d61c92fe0ff96a99f632636e; the status update is the branch HEAD (`git log -1`)
 GIT STATUS (including uncommitted files): clean after the push
-CURRENT TASK ID: none in progress; AHB-001 awaiting owner review
-FILES CREATED/CHANGED: root AGENTS.md; docs/dv-architecture/* (12 documents, adapted from apb_uvc b406d6a); poc/ahb_uvc/** (36 SV/SVH sources, 4 filelists, 2 scripts, README, .gitignore). No legacy file touched.
+CURRENT TASK ID: none in progress; AHB-001 (contract review) and AHB-002 (toolchain approval) wait for the owner
+FILES CREATED/CHANGED: session 1 (PR #7): root AGENTS.md; docs/dv-architecture/* (12 documents adapted from apb_uvc b406d6a);
+             poc/ahb_uvc/** (36 SV/SVH sources, 4 filelists, 2 scripts, README, .gitignore). This update: WORK_STATUS.md,
+             DECISION_LOG.md (D-009, D-010), new SESSION_SUMMARY.md, read-order/listing notes in README, AGENTS,
+             DIRECTORY_ARCHITECTURE and the CODING_GUIDELINES GIT-01 note. No legacy file touched.
 PROVEN WORKING (with log/command): nothing executed; text-only checks only (Static self-review done)
 FAILED CHECKS (with log/command): none run
 NOT YET RUN: every elaboration and simulation (no tool approved, D-003)
-UNRESOLVED AHB SPEC/PORT/SCHEDULING QUESTIONS: Q1-Q7 (AHB_PROTOCOL_CONTRACT.md §12); spec citations by title (RISK-013); cross-item pipelining (RISK-014)
+UNRESOLVED AHB SPEC/PORT/SCHEDULING QUESTIONS: Q1-Q7 (AHB_PROTOCOL_CONTRACT.md §12); spec citations by title (RISK-013);
+             cross-item pipelining (RISK-014)
 OPEN REVIEW FINDING IDS: RISK-001..006, 008, 009, 011..015 (007 and 010 not applicable)
-ARCHITECTURE CONTRACT/ADR AMENDED?: AHB contract v0.1 and ADRs adapted from APB; architecture decisions unchanged; AHB width pair 32/64 replaces the APB A1 amendment
-NEXT EXACT COMMAND/SMALLEST TASK: owner decides T1/T3 (and T5); if approved, install pyslang, clone UVM 1.2 outside the repo, run the T1 HDL command on ahb_hdl_smoke.f and record evidence/AHB-003/; fix source bugs generically; then the T1 UVM command. Otherwise the owner runs the T4 bundles on EDA Playground and the results are recorded here.
+ARCHITECTURE CONTRACT/ADR AMENDED?: no (contract v0.1, ADRs as merged in PR #7)
+NEXT EXACT COMMAND/SMALLEST TASK: in a new chat paste the start prompt from SESSION_SUMMARY.md §6. Owner decides T1/T3
+             (and T5); if approved: install pyslang, clone UVM 1.2 outside the repo, run the T1 HDL command on
+             ahb_hdl_smoke.f, record evidence/AHB-003/, fix source bugs generically, then the T1 UVM command.
+             Otherwise the owner runs the T4 bundles on EDA Playground and the results are recorded here.
 ```
